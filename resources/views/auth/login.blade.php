@@ -1,7 +1,7 @@
 @extends('auth.layouts.app')
 
 @section('content')
-<div class="row justify-content-center">
+<div class="row justify-content-center" style="margin-left:10%;">
 
     <div class="col-xl-8 col-lg-7 col-md-1">
 
@@ -40,16 +40,15 @@
                                     <div class="custom-control custom-checkbox small">
                                         <input class="custom-control-input" type="checkbox" name="remember" id="customCheck" {{ old('remember') ? 'checked' : '' }}>
 
-                                        
-                                    </div>
                                 </div>
-                                <button class="btn btn-primary btn-user btn-block">
+                                </div>
+                                <button class="btn btn-primary btn-user btn-block" style="margin-top:-30px">
                                     Connectez-vous!
                                 </button>
                             </form>
                             <hr>
                             @if (session('error'))
-                            <div class="alert alert-danger" role="alert">
+                            <div class="alert alert-danger" role="alert" style="width:250px;height:45px;">
 	                       {{ session('error') }}
                           </div>
                            @elseif(session('failed'))
