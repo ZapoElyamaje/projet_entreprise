@@ -58,6 +58,11 @@ class LoginController extends Controller
             {
                return redirect()->route('home');
             }
+
+            if(auth()->user()->is_admin == 2)
+            {
+              return redirect()->route('user');
+            }
         }
         else
         {
