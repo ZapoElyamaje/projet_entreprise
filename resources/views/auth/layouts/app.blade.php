@@ -19,6 +19,7 @@
 
     <!-- Custom styles for this template-->
     <link href="{{asset('admin/css/sb-admin-2.min.css')}}" rel="stylesheet">
+    <link rel="icon" type="image/png" href="{{asset('admin/img/Logo_elyamaje.png')}}" />
     <style>
     #imj{margin-left:40%;margin-top:20px;}
 	.card{width:400px;}

@@ -2,7 +2,7 @@
 
     <!-- Sidebar - Brand -->
     <img id="imj" src="{{ asset('admin/img/Logo_elyamaje.png')}}" width="95px";
-					height="auto"; style="margin-top:20px;margin-left:10%";>
+					height="auto"; style="margin-top:20px;margin-left:15%";>
 
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
