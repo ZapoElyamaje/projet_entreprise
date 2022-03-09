@@ -32,7 +32,17 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
+        @if(auth()->user()->is_admin == 1)
         @include('common.sidebar')
+        @endif
+
+        @if(auth()->user()->is_admin == 2)
+        @include('common.slider_ambassadrice')
+        @endif
+
+        @if(auth()->user()->is_admin == 3)
+        @include('common.slider_comptable')
+        @endif
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->

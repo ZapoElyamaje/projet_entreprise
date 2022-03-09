@@ -3,28 +3,50 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
-use Illuminate\Foundation\Auth\ResetsPasswords;
+use App\Repository\Users\UserRepository;
+use App\Mail\ResetPassword;
+use App\Http\Service\Mailer\ServiceMailer;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ResetPasswordController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Password Reset Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller is responsible for handling password reset requests
-    | and uses a simple trait to include this behavior. You're free to
-    | explore this trait and override any methods you wish to tweak.
-    |
-    */
+    private $userRepository;
+    private $serviceMailer;
+    
+    public function __construct(UserRepository $userRepository, ServiceMailer $serviceMailer)
+    {
+        $this->userRepository = $userRepository;
+        $this->serviceMailer = $serviceMailer;
+    }
+    
+    public function reset_pass()
+    {
+        return view('auth.passwords.reset');
+    }
 
-    use ResetsPasswords;
-
-    /**
-     * Where to redirect users after resetting their password.
-     *
-     * @var string
-     */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    public function sendEmail(Request $request)
+    {
+       // ckeck email (récupérer l'email de user et verifier si existe)
+        $email = $request->get('email');
+        $user_email = $this->userRepository->getEmail($email);
+        if(!$user_email)
+        {
+              return redirect()->route('auth.passwords.reset')->with('error','cette adresse e-mail n\'est pas identifié !');
+        }
+         else 
+         {
+                // envoi de mail resetpassword
+                // créer un tableau associative
+                 $user = ['email'=>$email];
+                 Mail::to($user['email'])->send(new ResetPassword($user));
+                 // redirecto route
+                 return redirect()->route('auth.passwords.reset');
+        }
+     }
+     
+     public function updatepass()
+     {
+         
+     }
 }

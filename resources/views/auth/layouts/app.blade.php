@@ -19,14 +19,12 @@
 
     <!-- Custom styles for this template-->
     <link href="{{asset('admin/css/sb-admin-2.min.css')}}" rel="stylesheet">
+    <link href="{{asset('admin/css/app_login.css')}}" rel="stylesheet">
     <link rel="icon" type="image/png" href="{{asset('admin/img/Logo_elyamaje.png')}}" />
-    <style>
-    #imj{margin-left:40%;margin-top:20px;}
-	.card{width:400px;}
-    </style>
+    
 </head>
 
-<body class="bg-gradient-primary">
+<body class="body" style="background-color:white">
 
     <div class="container">
 
@@ -44,6 +42,10 @@
 
     <!-- Custom scripts for all pages-->
     <script src="{{asset('admin/js/sb-admin-2.min.js')}}"></script>
+    <script src="{{ asset('admin/js/home.js') }}" ></script>
+    <script src="{{ asset('admin/js/jquery.js') }}" ></script>
+   
+
 
 </body>
 

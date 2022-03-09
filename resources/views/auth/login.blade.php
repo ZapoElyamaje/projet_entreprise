@@ -14,9 +14,9 @@
 					height="auto">
                         <div class="p-5">
                             <div class="text-center">
-                                <h1>Accès au service</h1>
+                                <h1>Service Saas</h1>
                             </div>
-                            <form method="POST" action="{{ route('login') }}">
+                            <form method="POST" id="form_login" action="{{ route('login') }}">
                                 @csrf
                                 <div class="form-group">
                                     <input id="email" type="email" class="form-control form-control-user @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Enter Email Address.">
@@ -42,19 +42,20 @@
 
                                 </div>
                                 </div>
-                                <button class="btn btn-primary btn-user btn-block" style="margin-top:-30px">
+                                <button id="but" class="btn btn-primary btn-user btn-block" style="margin-top:-30px;background-color:black;color:white;border:2px solid black;">
                                     Connectez-vous!
                                 </button>
                             </form>
                             <hr>
-                            @if (session('error'))
-                            <div class="alert alert-danger" role="alert" style="width:250px;height:45px;">
-	                       {{ session('error') }}
-                          </div>
-                           @elseif(session('failed'))
+                                <div class="rows1" style="margin-left:40%; width=300px;"><a href="{{ route('auth.passwords.reset')}}"> Mot de pass oublié ? </a></div>
+                                @if (session('error'))
+                                <div class="alert alert-danger" role="alert" id="alert" style="width:300px;height:45px;text-align:center;">
+	                            {{ session('error') }}
+                                </div>
+                                @elseif(session('failed'))
                            
-                             @endif
-                            <div class="text-center">
+                                 @endif
+                              <div class="text-center">
                                 
                             </div>
                             <div class="text-center">
@@ -68,4 +69,8 @@
     </div>
 
 </div>
+
+
 @endsection
+
+

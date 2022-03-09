@@ -1,0 +1,14 @@
+#imj{margin-left:40%;margin-top:20px;}
+.card{width:450px;} #form_login{width:120%;} #content1{margin-top:100px;}
+#form_reset{width:120%;} 
+#alerts{width:240px;height:55px;text-align:center;margin-left:33%;margin-top:5px;}
+
+/*------------------------------------------------------------------
+[ Responsive ]*/
+
+@media (max-width: 575.98px) { 
+.card{width:320px;margin-left:-10%;}
+#form_login{width:140%;}
+#alerts{width:240px;height:55px;text-align:center;margin-left:13%;margin-top:5px;}
+
+}
